@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
         }
         
         if (results.length === 0) {
-            return res.status(404).send('User not found');
+            return res.status(404).send('Users not found');
         }
         
         const user = results[0];
@@ -45,11 +45,9 @@ router.post('/login', (req, res) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            
             if (!isMatch) {
                 return res.status(401).send('Invalid password');
             }
-            
             res.status(200).send('Login successful');
         });
     });
